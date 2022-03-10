@@ -6,3 +6,9 @@
 
 ## 界面
 ![image](https://edu-online-platform.oss-cn-beijing.aliyuncs.com/wyy-bow/Snipaste_2022-03-10_18-10-21.png)
+![image](https://edu-online-platform.oss-cn-beijing.aliyuncs.com/wyy-bow/Snipaste_2022-03-10_18-36-32.png)
+![image](https://edu-online-platform.oss-cn-beijing.aliyuncs.com/wyy-bow/Snipaste_2022-03-10_18-10-21.png)
+![image](https://edu-online-platform.oss-cn-beijing.aliyuncs.com/wyy-bow/Snipaste_2022-03-10_18-10-49.png)
+![image](https://edu-online-platform.oss-cn-beijing.aliyuncs.com/wyy-bow/Snipaste_2022-03-10_18-11-16.png)
+
+
