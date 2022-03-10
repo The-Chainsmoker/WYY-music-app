@@ -1,0 +1,129 @@
+/* pages/songDetail/songDetail.wxss */
+/* pages/songDetail/songDetail.wxss */
+.songDetailContainer {
+  /*前三个值（红绿蓝）的范围为0到255之间的整数或者0%到100%之间的百分数。这些值描述了红绿蓝三原色在预期色彩中的量。*/
+  /*第四个值，alpha值，制订了色彩的透明度/不透明度，它的范围为0.0到1.0之间，0.5为半透明。*/
+  /*rgba(255,255,255,0)则表示完全透明的白色；*/
+  /*rgba(0,0,0,1)则表示完全不透明的黑色；*/
+  /*rgba(0,0,0,0)则表示完全不透明的白色,也即是无色；*/
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 底座 */
+.circle {
+  position: relative;
+  z-index: 100;
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  background: #fff;
+  margin: 10rpx 0;
+}
+
+/* 摇杆 */
+.needle {
+  position: relative;
+  z-index: 99;
+  top: -40rpx;
+  left: 60rpx;
+  width: 192rpx;
+  height: 274rpx;
+  /*设置旋转的起始点*/
+  transform-origin: 40rpx 0;
+  /*旋转角度*/
+  transform: rotate(-20deg);
+  /*过度属性*/
+  transition: transform 1s;
+}
+
+/*设置一开始的摇杆*/
+.needleRotate {
+  transform: rotate(0deg);
+}
+
+/* 磁盘 */
+.discContainer {
+  position: relative;
+  top: -170rpx;
+  width: 598rpx;
+  height: 598rpx;
+}
+
+/*
+  @keyframes: 设置动画帧
+    1) from to
+      - 使用于简单的动画，只有起始帧和结束帧
+      - 北京 - 上海  直达
+    2) 百分比
+      - 多用于复杂的动画，动画不止两帧
+      - 北京 - 上海 ---> 北京 -- 天津 --- 深圳 --- 上海
+      - 0% - 100%, 可以任意拆分
+
+*/
+
+
+.discAnimation {
+  /* 自定义动画属性名称（disc） */
+  /*infinite无限循环*/
+  animation: disc 4s linear infinite;
+  /* 延迟一秒钟再动 */
+  animation-delay: 1s;
+}
+
+@keyframes disc {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.disc {
+  width: 598rpx;
+  height: 598rpx;
+}
+
+.musicImg {
+  /*可以在盒子居中*/
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+
+  width: 370rpx;
+  height: 370rpx;
+  border-radius: 50%;
+
+}
+
+/* 底部控制区域 */
+.musicControl {
+  position: absolute;
+  bottom: 40rpx;
+  left: 0;
+  border-top: 1rpx solid #fff;
+  width: 100%;
+  display: flex;
+
+}
+
+.musicControl text {
+  width: 20%;
+  height: 120rpx;
+  line-height: 120rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 50rpx;
+}
+
+.musicControl .open {
+  font-size: 70rpx;
+}

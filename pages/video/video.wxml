@@ -1,0 +1,55 @@
+<!--pages/video/video.wxml-->
+<!-- 头部区域 -->
+<view class="videoContainer">
+  <view class="header">
+    <image src="/static/images/video/video.jpg"></image>
+    <view class="search">
+      搜索商品
+    </view>
+    <image src="/static/images/logo.png"></image>
+  </view>
+
+  <!-- 导航区域 -->
+  <scroll-view scroll-x class="navScroll" enable-flex scroll-into-view="{{'scroll'+navId}}" scroll-with-animation>
+    <view class="navItem" wx:for="{{videoGroupList}}" wx:key="id" wx:for-item="navItem" id="{{'scroll'+navItem.id}}">
+      <!-- id不能这样写{{'scroll'+navId}}，因为这样导致每一个id都是相同的值 -->
+      <view class="navContent {{navId === navItem.id?'active':''}}" bindtap="changeNav" id="{{navItem.id}}"
+        data-id="{{navItem.id}}">
+        <!--data-id,id都是设置id-->
+        {{navItem.name}}
+      </view>
+    </view>
+  </scroll-view>
+
+  <!--视频列表区域-->
+  <scroll-view scroll-y class="videoScroll" bindrefresherrefresh="handleRefresher" refresher-enabled
+    refresher-triggered="{{isTruggered}}" bindscrolltolower="handleToLower">
+    <view class="videoItem" wx:for="{{videoList}}" wx:key="id">
+      <video src="{{item.data.urlInfo.url}}" bindplay="handlePlay" id="{{item.data.vid}}"
+        poster="{{item.data.coverUrl}}" class="common" wx:if="{{videoId === item.data.vid}}" autoplay object-fit="fill"
+        bindtimeupdate="handleTimeUpdate" bindended="handleEnded"></video>
+      <!-- {{videoId === item.data.vid}}当点击时videoId才会赋值 -->
+
+
+      <!-- 性能优化：使用image图片代替video标签 -->
+      <image wx:else src="{{item.data.coverUrl}}" id="{{item.data.vid}}" class="common" bindtap="handlePlay"></image>
+
+      <view class="content">{{item.data.title}}</view>
+
+      <view class="footer">
+        <image class="avatar" src="{{item.data.creator.avatarUrl}}"></image>
+        <text class="nickName">{{item.data.creator.nickname}}</text>
+        <view class="comments_praised">
+          <text class="item">
+            <text class="iconfont icon-aixin"></text>
+            <text class="count">{{item.data.praisedCount}}</text>
+          </text>
+          <text class="item">
+            <text class="iconfont icon-xiaoxi1"></text>
+            <text class="count">{{item.data.commentCount}}</text>
+          </text>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
